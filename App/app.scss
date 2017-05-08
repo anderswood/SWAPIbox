@@ -1,0 +1,28 @@
+@import './Button/button.scss';
+@import './Card/card.scss';
+
+#main-container {
+  display: flex;
+}
+
+#synopsis {
+  min-width: 200px;
+  border: 1px solid brown;
+}
+
+#header-container {
+  background: magenta;
+  border: 1px solid green;
+
+}
+
+#button-container {
+  display: flex;
+  border: 1px solid brown;
+
+}
+
+#card-container {
+  display: flex;
+  border: 1px solid orange;
+}
