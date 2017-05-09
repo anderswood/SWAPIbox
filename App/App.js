@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import asideTextArr from './Aside/aside.js';
 import Button from './Button/Button.js';
 import CardList from './CardList/CardList.js';
+import speciesScrubber from './Scrubbers/SpeciesScrubber';
+import peopleScrubber from './Scrubbers/PeopleScrubber';
 import Favorites from './Favorites/favorites.js'
 
 class App extends Component {
@@ -9,7 +11,10 @@ class App extends Component {
     super()
     this.state = {
       cardArr: '',
+      speciesArr: [],
       peopleArr: [],
+      planetsArr: [],
+      vehicleArr: [],
       previous: 'previous-url',
       next: 'next-url'
     }
@@ -17,6 +22,8 @@ class App extends Component {
 
   componentDidMount () {
     this.setState({
+      speciesArr: speciesScrubber(),
+      peopleArr: peopleScrubber(),
       cardArr: [
         {
           Type: 'people',
