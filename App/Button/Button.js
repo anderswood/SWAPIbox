@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ( {cardArr} ) => {
-  console.log(cardArr);
+  // console.log(cardArr);
   return(
     <div></div>
   )

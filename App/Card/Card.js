@@ -10,7 +10,7 @@ const Card = ( {cardData} ) => {
       cardContentsArr.push(<h3>{ property }:{ cardData[property] }</h3>)
     }
   })
-  console.log(cardContentsArr);
+  // console.log(cardContentsArr);
 
   const handleFavoriteClick = (targetElement) => {
     targetElement.classList.toggle('favorited')

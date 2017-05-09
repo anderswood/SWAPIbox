@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Button from './Button/Button.js';
 import CardList from './CardList/CardList.js';
+import speciesScrubber from './Scrubbers/SpeciesScrubber';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       cardArr: '',
+      speciesArr: speciesScrubber(),
       peopleArr: [],
       previous: 'previous-url',
       next: 'next-url'
