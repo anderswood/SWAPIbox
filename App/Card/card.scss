@@ -1,0 +1,14 @@
+
+.card-container {
+  width: 200px;
+  border: 1px solid yellow;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favorited {
+  background: red;
+}

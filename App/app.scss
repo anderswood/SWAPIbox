@@ -1,4 +1,5 @@
 @import './Button/button.scss';
+@import './CardList/cardlist.scss';
 @import './Card/card.scss';
 
 #main-container {
@@ -8,6 +9,11 @@
 #synopsis {
   min-width: 200px;
   border: 1px solid brown;
+}
+
+#content-container {
+  width: 100%;
+  border: 1px solid magenta;
 }
 
 #header-container {
