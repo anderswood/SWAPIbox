@@ -1,16 +1,53 @@
 import React, { Component } from 'react';
 import Button from './Button/Button.js';
-import Card from './Card/Card.js';
+import CardList from './CardList/CardList.js';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      peopleArr: [{name: 'luke', Homeworld: 'Tatooine'}],
-      planetsArr: [],
-      vehiclesArr: []
+      cardArr: '',
+      peopleArr: [],
+      previous: 'previous-url',
+      next: 'next-url'
     }
   }
+
+  componentDidMount () {
+    this.setState({
+      cardArr: [
+        {
+          Type: 'people',
+          Name: 'Luke Skywalker',
+          Homeworld: 'Tatooine',
+          Species: 'Human',
+          Language: 'Galactic Basic',
+          Population: '200000',
+          Terrain: null,
+          Climate: null,
+          Residents: null,
+          Model: null,
+          Class: null,
+          NumberOfPassengers: null
+        },
+        {
+          Type: 'people',
+          Name: 'Person 2',
+          Homeworld: 'Ta',
+          Species: 'Hum',
+          Language: 'Basic',
+          Population: '10000',
+          Terrain: null,
+          Climate: null,
+          Residents: null,
+          Model: null,
+          Class: null,
+          NumberOfPassengers: null
+        }
+      ]
+    })
+  }
+
 
   render() {
     return (
@@ -22,9 +59,8 @@ class App extends Component {
             <Button />
             <Button />
           </section>
-          <section id='card-container'>
-            <Card cardArr={ this.state.peopleArr }/>
-          </section>
+            <CardList cardArr={ this.state.cardArr }
+                      type={ 'person' }/>
         </div>
       </div>
     )
