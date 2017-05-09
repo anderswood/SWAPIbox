@@ -1,14 +1,11 @@
 @import './Button/button.scss';
 @import './CardList/cardlist.scss';
+@import './Aside/aside.scss';
 @import './Card/card.scss';
+@import './Favorites/favorites.scss';
 
 #main-container {
   display: flex;
-}
-
-#synopsis {
-  min-width: 200px;
-  border: 1px solid brown;
 }
 
 #content-container {
@@ -17,7 +14,10 @@
 }
 
 #header-container {
-  background: magenta;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
   border: 1px solid green;
 
 }
