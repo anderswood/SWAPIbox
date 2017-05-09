@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ( {cardArr} ) => {
-  // console.log(cardArr);
+const Button = ( {type} ) => {
   return(
-    <div></div>
+    <button>{ type }</button>
   )
 
 
 }
 
 Button.propTypes = {
-  cardArr: PropTypes.array
+  type: PropTypes.string
 }
 
 export default Button

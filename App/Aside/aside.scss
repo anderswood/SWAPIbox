@@ -1,0 +1,48 @@
+
+@import url(https://fonts.googleapis.com/css?family=News+Cycle:400,700);
+
+#aside-container {
+  width: 400px;
+}
+
+#synopsis-title {
+  background: #000;
+  position: absolute;
+	width: 350px;
+	height: 50em;
+	bottom: 0;
+	left: 50%;
+	margin-left: -9em;
+	font-size: 350%;
+	font-weight: bold;
+	text-align: justify;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(25deg);
+  padding: 5px;
+}
+
+#synopsis-title:after {
+  // width: 400px;
+  position: absolute;
+  content: ' ';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 60%;
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  pointer-events: none;
+  padding: 5px;
+}
+
+#synopsis p {
+	position: absolute;
+	top: 100%;
+	animation: scroll 100s linear 4s infinite;
+  color: #ff6;
+}
+
+@keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
