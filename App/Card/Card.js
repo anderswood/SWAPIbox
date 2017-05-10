@@ -14,18 +14,16 @@ const Card = ( {cardData, clickOnFav} ) => {
 
   const handleFavoriteClick = (targetElement) => {
     targetElement.classList.toggle('favorited')
-    clickOnFav(cardData)
-    console.log(targetElement);
+    clickOnFav(cardData, targetElement)
   }
 
   return(
     <div className='card-container'>
       <div className='card-header'>
         <div className='card-title'><h2>{ cardData.Name }</h2></div>
-        <div  className='star-container'
-              onClick={ e => { handleFavoriteClick(e.target) } }>
-            <div className='star-icon'></div>
-        </div>
+          <div  className='star-icon'
+                onClick={ e => { handleFavoriteClick(e.target) } }>
+          </div>
       </div>
       <div className='card-contents'>{ cardContentsArr }</div>
     </div>
