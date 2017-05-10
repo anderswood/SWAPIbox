@@ -5,9 +5,9 @@ const Card = ( {cardData} ) => {
   // let favoriteClass ='star-icon';
 
   const cardContentsArr = []
-  Object.keys(cardData).forEach( property => {
+  Object.keys(cardData).forEach( (property, i) => {
     if(cardData[property] !== null && property !== 'Type' && property !== 'Name') {
-      cardContentsArr.push(<h3>{ property }: { cardData[property] }</h3>)
+      cardContentsArr.push(<h3 key={i}>{ property }: { cardData[property] }</h3>)
     }
   })
   // console.log(cardContentsArr);
