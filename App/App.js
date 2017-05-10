@@ -108,7 +108,8 @@ class App extends Component {
             <Button type={ 'vehicle' }
                     updateCards={ this.updateCardsOnClick.bind(this) }/>
             <Favorites  type={ 'favorites' }
-                        updateCards={ this.updateCardsOnClick.bind(this) }/>
+                        updateCards={ this.updateCardsOnClick.bind(this)}
+                        favoriteCount={ this.state.favorites.length }/>
           </section>
             <CardList type={ 'person' }
                       cardArr={ this.state.cardArr }
