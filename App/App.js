@@ -49,60 +49,45 @@ class App extends Component {
     speciesScrubber()
       .then( speciesScrubbedArr => {
         species = speciesOrdered(speciesScrubbedArr)
-
         planetScrubber()
-          .then( planetScrubbedArr => {
-            peopleScrubber().then(peopleScrubbedArr => {
-              people = peopleNeedPlanets(peopleScrubbedArr, planetScrubbedArr, species)
-              planets = planetsNeedPeople(planetScrubbedArr, people)
-              people = deletePeopleURL(people)
-              this.setState({species: species,
-                             planet: planets,
-                             people: people,
-                             vehicle: vehicles
-                           })
-              // console.log('people', this.state.peopleArr)
-              // console.log('planets', this.state.planetsArr)
-              // console.log('species', this.state.speciesArr)
-                // console.log('vehicle', this.state.vehicleArr)
-              console.log('APIs are dunzo');
-            })
-          } )
-      } )
+        .then( planetScrubbedArr => {
+          peopleScrubber().then(peopleScrubbedArr => {
+            people = peopleNeedPlanets(peopleScrubbedArr, planetScrubbedArr, species)
+            planets = planetsNeedPeople(planetScrubbedArr, people)
+            people = deletePeopleURL(people)
+            this.setState({species: species,
+                           planet: planets,
+                           people: people,
+                           vehicle: vehicles
+                         })
+            console.log('APIs are dunzo');
+          })
+        })
+      })
 
   }
 
   updateCardsOnClick(category) {
+
     this.setState({
       cardArr: this.state[category]
     })
-    console.log('category: ', category);
   }
 
-  updateFavoritesOnClick(cardToFavorite) {
+  updateFavoritesOnClick(cardToFavorite, targetElement) {
+    console.log(typeof targetElement.className);
     let favoriteArr = this.state.favorites
-    favoriteArr.push(cardToFavorite)
-    // let counter = 0
+    if(this.state.cardArr !== favoriteArr){
+      // targetElement.classList ? favoriteArr.push(cardToFavorite) : remove
+    }
     favoriteArr = Array.from(new Set(favoriteArr))
-    // let newFavorites = favoriteArr.map((val, index) => {
-    //   console.log('val', val.Name, 'card', cardToFavorite.Name)
-    //   if(val.Name != cardToFavorite.Name) {
-    //     return val
-    //   } else {
-    //     counter++
-    //   }
-    // })
-    // if(counter === 0) {
-    //   newFavorites.push(cardToFavorite)
-    // }
-    console.log(favoriteArr)
     this.setState({
       favorites: favoriteArr
     })
   }
 
   render() {
-    console.log('cardArr: ', this.state.cardArr);
+    // console.log('cardArr: ', this.state.cardArr);
     return (
       <div id='main-container'>
           <div id='aside-container'>
@@ -134,17 +119,5 @@ class App extends Component {
   }
 
 }
-
-// run this helper function after wrapper mount:
-
-// function resolveAfter2Seconds () {
-//   return new Promise(resolve => {
-//     setTimeout(() => {
-//       resolve();
-//     }, 2000);
-//   });
-//   }
-
-// execute like this: await resolveAfter2Seconds()
 
 export default App;
