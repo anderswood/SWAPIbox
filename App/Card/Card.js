@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ( {cardData, clickOnFav} ) => {
-  // let favoriteClass ='star-icon';
+const Card = ( {cardData, clickOnFav, favArr} ) => {
 
   const cardContentsArr = []
   Object.keys(cardData).forEach( (property, i) => {
@@ -10,7 +9,11 @@ const Card = ( {cardData, clickOnFav} ) => {
       cardContentsArr.push(<h3 key={i}>{ property }: { cardData[property] }</h3>)
     }
   })
-  // console.log(cardContentsArr);
+
+  const isFavorite = () => {
+    const temp = favArr.indexOf(cardData);
+    return temp === -1 ? 'star-icon' : 'star-icon favorited';
+  }
 
   const handleFavoriteClick = (targetElement) => {
     targetElement.classList.toggle('favorited')
@@ -21,7 +24,8 @@ const Card = ( {cardData, clickOnFav} ) => {
     <div className='card-container'>
       <div className='card-header'>
         <div className='card-title'><h2>{ cardData.Name }</h2></div>
-          <div  className='star-icon'
+          <div
+                className={ isFavorite() }
                 onClick={ e => { handleFavoriteClick(e.target) } }>
           </div>
       </div>
