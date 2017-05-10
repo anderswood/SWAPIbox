@@ -8,7 +8,7 @@ const Button = ( {type, updateCards} ) => {
   }
 
   return(
-    <button onClick={ e => handleClick(e.target.innerText) }>{ type }</button>
+    <button onClick={ e => handleClick(e.target.innerText) }><h4>{ type }</h4></button>
   )
 
 }
