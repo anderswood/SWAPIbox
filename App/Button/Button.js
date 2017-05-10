@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ( {type} ) => {
-  return(
-    <button>{ type }</button>
-  )
+const Button = ( {type, updateCards} ) => {
 
+  const handleClick = (category) => {
+    updateCards(category)
+  }
+
+  return(
+    <button onClick={ e => handleClick(e.target.innerText) }>{ type }</button>
+  )
 
 }
 
