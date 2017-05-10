@@ -3,15 +3,16 @@
 
 #aside-container {
   width: 400px;
+  height: 100%;
 }
 
 #synopsis-title {
   background: #000;
-  position: absolute;
+  position: fixed;
 	width: 350px;
 	height: 50em;
 	bottom: 0;
-	left: 50%;
+	left: 9em;
 	margin-left: -9em;
 	font-size: 350%;
 	font-weight: bold;
@@ -20,6 +21,7 @@
 	transform-origin: 50% 100%;
 	transform: perspective(300px) rotateX(25deg);
   padding: 5px;
+  z-index: -1;
 }
 
 #synopsis-title:after {
@@ -38,7 +40,7 @@
 #synopsis p {
 	position: absolute;
 	top: 100%;
-	animation: scroll 50s linear 4s infinite;
+	animation: scroll 30s linear 4s infinite;
   color: #ff6;
 }
 
