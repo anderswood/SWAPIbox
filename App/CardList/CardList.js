@@ -10,10 +10,9 @@ const CardList = ( {cardArr, type} ) => {
 
 
 
-  const cardListArr = cardArr.map( cardObj =>{
-    // console.log(cardObj);
+  const cardListArr = cardArr.map( (cardObj, i) =>{
     return <Card cardData={ cardObj }
-                 key={ cardObj.Name }
+                 key={ cardObj.Name+i }
                  type={ type }/>
   })
 

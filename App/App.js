@@ -21,12 +21,11 @@ class App extends Component {
     this.state = {
       cardArr: [],
       film: 'film text',
-      speciesArr: [],
-      peopleArr: [],
-      planetArr: [],
-      vehicleArr: [],
-      previous: 'previous-url',
-      next: 'next-url'
+      species: [],
+      people: [],
+      planet: [],
+      vehicle: [],
+      favorites: [],
     }
   }
 
@@ -43,7 +42,7 @@ class App extends Component {
     })
 
     vehicleScrubber().then(vehicleScrubbedArr => {
-      this.setState({vehicleArr: vehicleScrubbedArr})
+      this.setState({vehicle: vehicleScrubbedArr})
     })
 
     speciesScrubber()
@@ -55,73 +54,32 @@ class App extends Component {
               people = peopleNeedPlanets(peopleScrubbedArr, planetScrubbedArr, species)
               planets = planetsNeedPeople(planetScrubbedArr, people)
               people = deletePeopleURL(people)
-              this.setState({speciesArr: species,
-                             planetArr: planets,
-                             peopleArr: people,
-                             cardArr: people
+              this.setState({species: species,
+                             planet: planets,
+                             people: people
+
                            })
               // console.log('people', this.state.peopleArr)
               // console.log('planets', this.state.planetsArr)
               // console.log('species', this.state.speciesArr)
-              // console.log('vehicle', this.state.vehicleArr)
+                // console.log('vehicle', this.state.vehicleArr)
+              console.log('APIs are dunzo');
             })
           } )
       } )
 
-      // this.setState( {
-      //   speciesArr: species,
-      //   planetsArr: planets,
-      //   vehicleArr: vehicles,
-      //   peopleArr: people
-      // })
-
-    // this.setState({
-    //   speciesArr: species,
-    //   // peopleArr: peopleScrubber(),
-    //   cardArr: [
-    //     {
-    //       Type: 'people',
-    //       Name: 'Luke Skywalker',
-    //       Homeworld: 'Tatooine',
-    //       Species: 'Human',
-    //       Language: 'Galactic Basic',
-    //       Population: '200000',
-    //       Terrain: null,
-    //       Climate: null,
-    //       Residents: null,
-    //       Model: null,
-    //       Class: null,
-    //       NumberOfPassengers: null
-    //     },
-    //     {
-    //       Type: 'people',
-    //       Name: 'Person 2',
-    //       Homeworld: 'Ta',
-    //       Species: 'Hum',
-    //       Language: 'Basic',
-    //       Population: '10000',
-    //       Terrain: null,
-    //       Climate: null,
-    //       Residents: null,
-    //       Model: null,
-    //       Class: null,
-    //       NumberOfPassengers: null
-    //     }
-    //   ]
-    // })
-
-
   }
 
-  updateCards(category) {
+  updateCardsOnClick(category) {
     this.setState({
-      cardArr: this.state[category+'Arr']
+      cardArr: this.state[category]
     })
-    console.log(category+'Arr');
+    console.log('category: ', category);
   }
+
 
   render() {
-    console.log(this.state.cardArr);
+    console.log('cardArr: ', this.state.cardArr);
     return (
       <div id='main-container'>
           <div id='aside-container'>
@@ -132,15 +90,15 @@ class App extends Component {
         <div id='content-container'>
           <header id='header-container'>
             <h1>SWAPI-box</h1>
-            <Favorites />
           </header>
           <section id='button-container'>
             <Button type={ 'people' }
-                    updateCards={ this.updateCards.bind(this) }/>
+                    updateCards={ this.updateCardsOnClick.bind(this) }/>
             <Button type={ 'planet' }
-                    updateCards={ this.updateCards.bind(this) }/>
+                    updateCards={ this.updateCardsOnClick.bind(this) }/>
             <Button type={ 'vehicle' }
-                    updateCards={ this.updateCards.bind(this) }/>
+                    updateCards={ this.updateCardsOnClick.bind(this) }/>
+            <Favorites updateCards={ this.updateCardsOnClick.bind(this) }/>
           </section>
             <CardList cardArr={ this.state.cardArr }
                       type={ 'person' }/>
