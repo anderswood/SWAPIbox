@@ -11,11 +11,12 @@
 
 #favorites-box {
   display: flex;
-  vertical-align: middle;
+  align-items: center;
   justify-content: center;
   width: 25px;
   height: 25px;
   background: #000;
+  margin-left: 5px;
 }
 
 #favorites-box h4 {
