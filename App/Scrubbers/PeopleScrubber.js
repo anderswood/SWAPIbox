@@ -1,34 +1,33 @@
-const peopleScrubber = (query) => {
-  let unclean = query;
-  let clean = { people: [], next: '', previous: '' }
 
-  // console.log(unclean.results[0].name)
-  // console.log(clean)
-  let array = unclean.results.map((val, index) => {
-    let temp = {}
-    temp.name = unclean.results[index].name;
-    temp.homeworld = unclean.results[index].homeworld;
-    temp.species = unclean.results[index].species[0];
-    temp.population = unclean.results[index].homeworld;
-    return temp
+const peopleScrubber = () => {
+  let p1 = apiCall('http://swapi.co/api/people/?page=1')
+  let p2 = apiCall('http://swapi.co/api/people/?page=2')
+  let p3 = apiCall('http://swapi.co/api/people/?page=3')
+  let p4 = apiCall('http://swapi.co/api/people/?page=4')
+  let p5 = apiCall('http://swapi.co/api/people/?page=5')
+  let p6 = apiCall('http://swapi.co/api/people/?page=6')
+  let p7 = apiCall('http://swapi.co/api/people/?page=7')
+  let p8 = apiCall('http://swapi.co/api/people/?page=8')
+  let p9 = apiCall('http://swapi.co/api/people/?page=9')
+
+  return Promise.all([p1, p2, p3, p4, p5, p6, p7, p8, p9]).then(promiseArr => {
+    return promiseArr.reduce((acc, peopleSynopsis) => {
+      peopleSynopsis.results.forEach((people, index) => {
+        let tempObj = {Name:''};
+        tempObj.Name = people.name;
+        tempObj.Homeworld = people.homeworld;
+        tempObj.Species = people.species[0];
+        tempObj.Population = '';
+        acc[acc.length] = tempObj
+      })
+      return acc
+    }, [])
   })
-  clean.people.push(...array)
-  clean.next = query.previous
-  clean.previous = query.next
-  return clean
 }
 
-export default peopleScrubber
+const apiCall = (address) => {
+  return fetch(address).then(response => response.json())
+}
 
-// let array = unclean.results.map((val, index) => {
-//   let temp = {}
-//   temp.name = unclean.results[index].name;
-//   temp.homeworld = unclean.results[index].homeworld;
-//   temp.species = unclean.results[index].species[0];
-//   temp.population = unclean.results[index].homeworld;
-//   return temp
-// })
-// clean.people.push(...array)
-// clean.next = query.previous
-// clean.previous = query.next
-// return clean
+
+export default peopleScrubber

@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
-import asideTextArr from './Aside/aside.js';
+// import asideTextArr from './Aside/aside.js';
 import Button from './Button/Button.js';
 import CardList from './CardList/CardList.js';
-import speciesScrubber from './Scrubbers/SpeciesScrubber';
-import peopleScrubber from './Scrubbers/PeopleScrubber';
+import speciesScrubber from './Scrubbers/speciesScrubber';
+import peopleScrubber from './Scrubbers/peopleScrubber';
+import planetScrubber from './Scrubbers/planetScrubber'
+import vehicleScrubber from './Scrubbers/vehicleScrubber'
+import filmsScrubber from './Scrubbers/filmsScrubber'
 import Favorites from './Favorites/favorites.js'
+
+let film;
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       cardArr: '',
+      film: 'film text',
       speciesArr: [],
       peopleArr: [],
       planetsArr: [],
@@ -21,9 +27,37 @@ class App extends Component {
   }
 
   componentDidMount () {
+    let species;
+    let planets;
+    let vehicles;
+    let people;
+
+    filmsScrubber().then(filmArr => {
+      console.log(filmArr);
+      let filmSelector = Math.floor(Math.random() * (7 - 0)) + 0
+      this.setState({film: filmArr[filmSelector]})
+    })
+
+    // speciesScrubber()
+    //   .then( speciesScrubbedArr => {
+    //     species = speciesScrubbeArr
+    //     planetScrubber()
+    //       .then( planetScrubbedArr => {
+    //         planets = planetScrubbedArr
+    //         // people = peopleScrubber()
+    //       } )
+    //   } )
+
+      // this.setState( {
+      //   speciesArr: species,
+      //   planetsArr: planets,
+      //   vehicleArr: vehicles,
+      //   peopleArr: people
+      // })
+
     this.setState({
-      speciesArr: speciesScrubber(),
-      peopleArr: peopleScrubber(),
+      speciesArr: species,
+      // peopleArr: peopleScrubber(),
       cardArr: [
         {
           Type: 'people',
@@ -59,12 +93,12 @@ class App extends Component {
 
 
   render() {
-    // let asideText = "It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies managed to steal secret plans to the Empire's ultimate weapon, the DEATH STAR, an armored space station with enough power to destroy an entire planet. Pursued by the Empire's sinister agents, Princess Leia races home aboard her starship, custodian of the stolen plans that can save her people and restore freedom to the galaxy....";
+    // console.log(this.state.speciesArr);
     return (
       <div id='main-container'>
           <div id='aside-container'>
             <aside id='synopsis-title'>
-              <div id='synopsis'>{ asideTextArr }</div>
+              <div id='synopsis'><p key='1'>{this.state.film}</p></div>
             </aside>
           </div>
         <div id='content-container'>
