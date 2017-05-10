@@ -8,7 +8,7 @@ const vehicleScrubber = () => {
   return Promise.all([p1, p2, p3, p4]).then(promiseArr => {
     return promiseArr.reduce((acc, vehiclesSynopsis) => {
       vehiclesSynopsis.results.forEach((vehicle, index) => {
-        console.log(vehicle.name);
+        // console.log(vehicle.name);
         let tempObj = {Name:''};
         tempObj.Name = vehicle.name;
         tempObj.Model = vehicle.model;
