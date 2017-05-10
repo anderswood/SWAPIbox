@@ -27,6 +27,7 @@ const peopleNeedPlanets = (people, planets, species) => {
     people[index].Species = speciesNames[speciesReference]
     people[index].Population = planetPopulation[worldReference]
     people[index].Homeworld = planetNames[worldReference]
+    people[index].PlanetUrl = worldReference
     return people[index]
   })
   return peopleWithHomes
