@@ -31,7 +31,12 @@ class App extends Component {
   componentWillMount() {
     filmsScrubber().then(filmArr => {
       let filmSelector = Math.floor(Math.random() * (7 - 0)) + 0
-      this.setState({film: filmArr[filmSelector]})
+      let storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      this.setState({
+        film: filmArr[filmSelector],
+        favorites: storedFavorites,
+        cardArr: storedFavorites || []
+      })
     })
   }
 
@@ -79,12 +84,15 @@ class App extends Component {
     this.setState({
       favorites: favoriteArr
     })
+    localStorage.setItem('favorites', JSON.stringify(favoriteArr))
   }
 
   areThereFavorites() {
     if(!this.state.favorites.length && this.state.cardArr === this.state.favorites) {
       return(
-        <div className='no-favs-container'><h2>no favorited things to display</h2></div>
+        <div className='no-favs-container'>
+          <h2>no favorited things to display</h2>
+        </div>
       )
     }
   }
