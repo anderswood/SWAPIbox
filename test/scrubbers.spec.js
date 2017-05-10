@@ -1,4 +1,5 @@
 import React from 'react'
+import mocha from 'mocha'
 import { Shallow, Mount } from 'enzyme'
 import filmsScrubber from './filmsScrubber'
 import peopleNeedPlanets from './peopleNeedPlanets'
@@ -10,7 +11,7 @@ import vehicleScrubber from './vehicleScrubber'
 
 describe('Time to scrub some data', () => {
 
-  it('filmsScrubber should grab scroll text for seven films', => {
+  it('filmsScrubber should grab scroll text for seven films', () => {
     let filmArray = filmsScrubber().then(res => return res)
     console.log(filmArray)
     expect(filmArray.length).toEqual(7)
