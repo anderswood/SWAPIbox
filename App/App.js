@@ -20,7 +20,7 @@ class App extends Component {
     super()
     this.state = {
       cardArr: [],
-      film: 'film text',
+      film: '',
       species: [],
       people: [],
       planet: [],
@@ -29,25 +29,27 @@ class App extends Component {
     }
   }
 
+  componentWillMount() {
+    filmsScrubber().then(filmArr => {
+      let filmSelector = Math.floor(Math.random() * (7 - 0)) + 0
+      this.setState({film: filmArr[filmSelector]})
+    })
+  }
+
   componentDidMount () {
     let species;
     let planets;
     let vehicles;
     let people;
 
-    filmsScrubber().then(filmArr => {
-      // console.log(filmArr);
-      let filmSelector = Math.floor(Math.random() * (7 - 0)) + 0
-      this.setState({film: filmArr[filmSelector]})
-    })
-
     vehicleScrubber().then(vehicleScrubbedArr => {
-      this.setState({vehicle: vehicleScrubbedArr})
+      vehicles = vehicleScrubbedArr
     })
 
     speciesScrubber()
       .then( speciesScrubbedArr => {
         species = speciesOrdered(speciesScrubbedArr)
+
         planetScrubber()
           .then( planetScrubbedArr => {
             peopleScrubber().then(peopleScrubbedArr => {
@@ -56,8 +58,8 @@ class App extends Component {
               people = deletePeopleURL(people)
               this.setState({species: species,
                              planet: planets,
-                             people: people
-
+                             people: people,
+                             vehicle: vehicles
                            })
               // console.log('people', this.state.peopleArr)
               // console.log('planets', this.state.planetsArr)
@@ -77,6 +79,13 @@ class App extends Component {
     console.log('category: ', category);
   }
 
+  updateFavoritesOnClick(cardToFavorite) {
+    let favoriteArr = this.state.favorites
+    favoriteArr.push(cardToFavorite)
+    this.setState({
+      favorites: favoriteArr
+    })
+  }
 
   render() {
     console.log('cardArr: ', this.state.cardArr);
@@ -98,10 +107,12 @@ class App extends Component {
                     updateCards={ this.updateCardsOnClick.bind(this) }/>
             <Button type={ 'vehicle' }
                     updateCards={ this.updateCardsOnClick.bind(this) }/>
-            <Favorites updateCards={ this.updateCardsOnClick.bind(this) }/>
+            <Favorites  type={ 'favorites' }
+                        updateCards={ this.updateCardsOnClick.bind(this) }/>
           </section>
-            <CardList cardArr={ this.state.cardArr }
-                      type={ 'person' }/>
+            <CardList type={ 'person' }
+                      cardArr={ this.state.cardArr }
+                      clickOnFavorite={ this.updateFavoritesOnClick.bind(this) }/>
         </div>
       </div>
     )

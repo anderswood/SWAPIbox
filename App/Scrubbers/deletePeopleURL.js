@@ -3,7 +3,6 @@ const deletePeopleURL = (people) => {
     delete person.PlanetUrl
     return person
   })
-  console.log('update those folks', updatedPeople)
   return updatedPeople
 }
 

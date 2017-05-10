@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ( {cardData} ) => {
+const Card = ( {cardData, clickOnFav} ) => {
   // let favoriteClass ='star-icon';
 
   const cardContentsArr = []
@@ -14,6 +14,8 @@ const Card = ( {cardData} ) => {
 
   const handleFavoriteClick = (targetElement) => {
     targetElement.classList.toggle('favorited')
+    clickOnFav(cardData)
+    console.log(targetElement);
   }
 
   return(
