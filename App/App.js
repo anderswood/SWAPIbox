@@ -81,22 +81,23 @@ class App extends Component {
 
   updateFavoritesOnClick(cardToFavorite) {
     let favoriteArr = this.state.favorites
-    let counter = 0
-    let newFavorites = favoriteArr.map((val, index) => {
-      console.log('val', val.Name, 'card', cardToFavorite.Name)
-      if(val.Name != cardToFavorite.Name) {
-        return val
-      } else {
-        counter++
-      }
-    })
-    if(counter != 0) {
-      newFavorites.push(cardToFavorite)
-    }
-    console.log(newFavorites)
-    // favoriteArr.push(cardToFavorite)
+    favoriteArr.push(cardToFavorite)
+    // let counter = 0
+    favoriteArr = Array.from(new Set(favoriteArr))
+    // let newFavorites = favoriteArr.map((val, index) => {
+    //   console.log('val', val.Name, 'card', cardToFavorite.Name)
+    //   if(val.Name != cardToFavorite.Name) {
+    //     return val
+    //   } else {
+    //     counter++
+    //   }
+    // })
+    // if(counter === 0) {
+    //   newFavorites.push(cardToFavorite)
+    // }
+    console.log(favoriteArr)
     this.setState({
-      favorites: newFavorites
+      favorites: favoriteArr
     })
   }
 
