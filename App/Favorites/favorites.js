@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Favorites = ( {type, updateCards} ) => {
+const Favorites = ( {type, updateCards, favoriteCount = 0} ) => {
 
   const handleClick = () => {
     updateCards(type)
@@ -10,7 +10,7 @@ const Favorites = ( {type, updateCards} ) => {
   return(
     <button id='favorites-container' onClick={ e => handleClick() }>
       <h4 id='view-favorites'>View Favorites</h4>
-      <div id='favorites-box'>0</div>
+      <div id='favorites-box'><h4>{ favoriteCount }</h4></div>
     </button>
   )
 
