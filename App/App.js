@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import asideTextArr from './Aside/aside.js';
 import Button from './Button/Button.js';
 import CardList from './CardList/CardList.js';
 import deletePeopleURL from './Scrubbers/deletePeopleURL'
@@ -82,6 +81,14 @@ class App extends Component {
     })
   }
 
+  areThereFavorites() {
+    if(!this.state.favorites.length && this.state.cardArr === this.state.favorites) {
+      return(
+        <div className='no-favs-container'><h2>no favorited things to display</h2></div>
+      )
+    }
+  }
+
   render() {
     // console.log('cardArr: ', this.state.cardArr);
     return (
@@ -106,8 +113,8 @@ class App extends Component {
                         updateCards={ this.updateCardsOnClick.bind(this)}
                         favoriteCount={ this.state.favorites.length }/>
           </section>
-            <CardList type={ 'person' }
-                      cardArr={ this.state.cardArr }
+            { this.areThereFavorites() }
+            <CardList cardArr={ this.state.cardArr }
                       favCardArr={ this.state.favorites }
                       clickOnFavorite={ this.updateFavoritesOnClick.bind(this) }/>
         </div>

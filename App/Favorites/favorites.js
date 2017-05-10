@@ -17,7 +17,9 @@ const Favorites = ( {type, updateCards, favoriteCount = 0} ) => {
 }
 
 Favorites.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  updateCards: PropTypes.func,
+  favoriteCount: PropTypes.number
 }
 
 export default Favorites
