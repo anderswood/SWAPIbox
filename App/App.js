@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import asideTextArr from './Aside/aside.js';
 import Button from './Button/Button.js';
 import CardList from './CardList/CardList.js';
+import deletePeopleURL from './Scrubbers/deletePeopleURL'
 import speciesScrubber from './Scrubbers/speciesScrubber';
 import speciesOrdered from './Scrubbers/speciesOrdered';
 import peopleScrubber from './Scrubbers/peopleScrubber';
@@ -53,6 +54,7 @@ class App extends Component {
             peopleScrubber().then(peopleScrubbedArr => {
               people = peopleNeedPlanets(peopleScrubbedArr, planetScrubbedArr, species)
               planets = planetsNeedPeople(planetScrubbedArr, people)
+              people = deletePeopleURL(people)
               this.setState({speciesArr: species,
                              planetArr: planets,
                              peopleArr: people,
