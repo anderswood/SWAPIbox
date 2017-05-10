@@ -1,4 +1,5 @@
 const speciesOrdered = (species) => {
+  console.log(species)
   let speciesList = species
   let ordered = [];
   speciesList.forEach((val, index) => {

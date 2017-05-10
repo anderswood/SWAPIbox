@@ -16,7 +16,7 @@ const planetScrubber = () => {
         tempObj.Terrain = planet.terrain;
         tempObj.Population = planet.population;
         tempObj.Climate = planet.climate;
-        tempObj.Residents = planet.residents;
+        tempObj.Residents = [];
         acc[acc.length] = tempObj
       })
       return acc
@@ -29,18 +29,7 @@ const Tatooine = {
     Terrain: "desert",
     Population: "200000",
     Climate: "arid",
-    Residents: [
-        "http://swapi.co/api/people/1/",
-        "http://swapi.co/api/people/2/",
-        "http://swapi.co/api/people/4/",
-        "http://swapi.co/api/people/6/",
-        "http://swapi.co/api/people/7/",
-        "http://swapi.co/api/people/8/",
-        "http://swapi.co/api/people/9/",
-        "http://swapi.co/api/people/11/",
-        "http://swapi.co/api/people/43/",
-        "http://swapi.co/api/people/62/"
-    ]
+    Residents: []
   }
 
 
