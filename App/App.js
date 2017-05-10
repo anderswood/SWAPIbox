@@ -68,19 +68,15 @@ class App extends Component {
   }
 
   updateCardsOnClick(category) {
-
     this.setState({
       cardArr: this.state[category]
     })
   }
 
   updateFavoritesOnClick(cardToFavorite, targetElement) {
-    console.log(typeof targetElement.className);
-    let favoriteArr = this.state.favorites
-    if(this.state.cardArr !== favoriteArr){
-      // targetElement.classList ? favoriteArr.push(cardToFavorite) : remove
-    }
-    favoriteArr = Array.from(new Set(favoriteArr))
+    let favoriteArr = this.state.favorites;
+    let favoriteIndex = favoriteArr.indexOf(cardToFavorite);
+    favoriteIndex !== -1 ? favoriteArr.splice(favoriteIndex, 1) : favoriteArr.push(cardToFavorite);
     this.setState({
       favorites: favoriteArr
     })
@@ -112,6 +108,7 @@ class App extends Component {
           </section>
             <CardList type={ 'person' }
                       cardArr={ this.state.cardArr }
+                      favCardArr={ this.state.favorites }
                       clickOnFavorite={ this.updateFavoritesOnClick.bind(this) }/>
         </div>
       </div>

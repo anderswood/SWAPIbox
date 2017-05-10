@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card.js';
 
 
-const CardList = ( {cardArr, type, clickOnFavorite} ) => {
+const CardList = ( {cardArr, type, clickOnFavorite, favCardArr} ) => {
   if (!cardArr.length) {
     return <div></div>
   }
@@ -14,6 +14,7 @@ const CardList = ( {cardArr, type, clickOnFavorite} ) => {
     return <Card cardData={ cardObj }
                  key={ cardObj.Name+i }
                  type={ type }
+                 favArr={ favCardArr }
                  clickOnFav={ clickOnFavorite }/>
   })
 
