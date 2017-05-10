@@ -22,7 +22,7 @@ class App extends Component {
       film: 'film text',
       speciesArr: [],
       peopleArr: [],
-      planetsArr: [],
+      planetArr: [],
       vehicleArr: [],
       previous: 'previous-url',
       next: 'next-url'
@@ -54,12 +54,14 @@ class App extends Component {
               people = peopleNeedPlanets(peopleScrubbedArr, planetScrubbedArr, species)
               planets = planetsNeedPeople(planetScrubbedArr, people)
               this.setState({speciesArr: species,
-                             planetsArr: planets,
-                             peopleArr: people})
-              console.log('people', this.state.peopleArr)
-              console.log('planets', this.state.planetsArr)
-              console.log('species', this.state.speciesArr)
-              console.log('vehicle', this.state.vehicleArr)
+                             planetArr: planets,
+                             peopleArr: people,
+                             cardArr: people
+                           })
+              // console.log('people', this.state.peopleArr)
+              // console.log('planets', this.state.planetsArr)
+              // console.log('species', this.state.speciesArr)
+              // console.log('vehicle', this.state.vehicleArr)
             })
           } )
       } )
@@ -105,11 +107,19 @@ class App extends Component {
     //     }
     //   ]
     // })
+
+
   }
 
+  updateCards(category) {
+    this.setState({
+      cardArr: this.state[category+'Arr']
+    })
+    console.log(category+'Arr');
+  }
 
   render() {
-    // console.log(this.state.speciesArr);
+    console.log(this.state.cardArr);
     return (
       <div id='main-container'>
           <div id='aside-container'>
@@ -123,9 +133,12 @@ class App extends Component {
             <Favorites />
           </header>
           <section id='button-container'>
-            <Button type={ 'people' }/>
-            <Button type={ 'planets' }/>
-            <Button type={ 'vehicles' }/>
+            <Button type={ 'people' }
+                    updateCards={ this.updateCards.bind(this) }/>
+            <Button type={ 'planet' }
+                    updateCards={ this.updateCards.bind(this) }/>
+            <Button type={ 'vehicle' }
+                    updateCards={ this.updateCards.bind(this) }/>
           </section>
             <CardList cardArr={ this.state.cardArr }
                       type={ 'person' }/>
@@ -136,5 +149,16 @@ class App extends Component {
 
 }
 
+// run this helper function after wrapper mount:
+
+// function resolveAfter2Seconds () {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve();
+//     }, 2000);
+//   });
+//   }
+
+// execute like this: await resolveAfter2Seconds()
 
 export default App;
