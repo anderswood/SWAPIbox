@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 const Button = ( {type, updateCards} ) => {
 
-  const handleClick = (category) => {
-    updateCards(category)
+  const handleClick = () => {
+    updateCards(type)
   }
 
   return(
-    <button onClick={ e => handleClick(e.target.innerText) }><h4>{ type }</h4></button>
+    <button onClick={ e => handleClick() }><h4>{ type }</h4></button>
   )
 
 }
