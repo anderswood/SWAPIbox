@@ -25,6 +25,7 @@ class App extends Component {
       planet: [],
       vehicle: [],
       favorites: [],
+      fetchInProgress: true
     }
   }
 
@@ -62,7 +63,8 @@ class App extends Component {
             this.setState({species: species,
                            planet: planets,
                            people: people,
-                           vehicle: vehicles
+                           vehicle: vehicles,
+                           fetchInProgress: false
                          })
             console.log('APIs are dunzo');
           })
@@ -77,7 +79,7 @@ class App extends Component {
     })
   }
 
-  updateFavoritesOnClick(cardToFavorite, targetElement) {
+  updateFavoritesOnClick(cardToFavorite) {
     let favoriteArr = this.state.favorites;
     let favoriteIndex = favoriteArr.indexOf(cardToFavorite);
     favoriteIndex !== -1 ? favoriteArr.splice(favoriteIndex, 1) : favoriteArr.push(cardToFavorite);
@@ -90,9 +92,15 @@ class App extends Component {
   areThereFavorites() {
     if(!this.state.favorites.length && this.state.cardArr === this.state.favorites) {
       return(
-        <div className='no-favs-container'>
-          <h2>no favorited things to display</h2>
-        </div>
+        <div id='no-favs'><h2>no favorited things to display</h2></div>
+      )
+    }
+  }
+
+  isFetching() {
+    if (this.state.fetchInProgress) {
+      return (
+        <div id='api-fetching'><h2>summoning your star wars knowledge, please hold</h2></div>
       )
     }
   }
@@ -121,6 +129,7 @@ class App extends Component {
                         updateCards={ this.updateCardsOnClick.bind(this)}
                         favoriteCount={ this.state.favorites.length }/>
           </section>
+            { this.isFetching() }
             { this.areThereFavorites() }
             <CardList cardArr={ this.state.cardArr }
                       favCardArr={ this.state.favorites }

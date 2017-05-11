@@ -17,7 +17,7 @@ const Card = ( {cardData, clickOnFav, favArr} ) => {
 
   const handleFavoriteClick = (targetElement) => {
     targetElement.classList.toggle('favorited')
-    clickOnFav(cardData, targetElement)
+    clickOnFav(cardData)
   }
 
   return(
