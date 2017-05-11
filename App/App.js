@@ -121,13 +121,13 @@ class App extends Component {
             <h1>SWAPI-box</h1>
           </header>
           <section id='button-container'>
-            <Button type={ 'people' }
+            <Button className='button' type={ 'people' }
                     updateCards={ this.updateCardsOnClick.bind(this) }
                     activeButton={ this.state.activeButton }/>
-            <Button type={ 'planet' }
+            <Button className='button' type={ 'planet' }
                     updateCards={ this.updateCardsOnClick.bind(this) }
                     activeButton={ this.state.activeButton }/>
-            <Button type={ 'vehicle' }
+            <Button className='button' type={ 'vehicle' }
                     updateCards={ this.updateCardsOnClick.bind(this) }
                     activeButton={ this.state.activeButton }/>
             <Favorites  type={ 'favorites' }
@@ -137,7 +137,8 @@ class App extends Component {
           </section>
             { this.isFetching() }
             { this.areThereFavorites() }
-            <CardList cardArr={ this.state.cardArr }
+            <CardList className='card-list'
+                      cardArr={ this.state.cardArr }
                       favCardArr={ this.state.favorites }
                       clickOnFavorite={ this.updateFavoritesOnClick.bind(this) }/>
         </div>
