@@ -33,10 +33,10 @@ import species1 from '../App/Data/Species/Species1.json'
 import species2 from '../App/Data/Species/Species2.json'
 import species3 from '../App/Data/Species/Species3.json'
 import species4 from '../App/Data/Species/Species4.json'
-import vehicles1 from '../App/Data/Species/Vehicles1.json'
-import vehicles2 from '../App/Data/Species/Vehicles2.json'
-import vehicles3 from '../App/Data/Species/Vehicles3.json'
-import vehicles4 from '../App/Data/Species/Vehicles4.json'
+import vehicles1 from '../App/Data/Vehicles/Vehicles1.json'
+import vehicles2 from '../App/Data/Vehicles/Vehicles2.json'
+import vehicles3 from '../App/Data/Vehicles/Vehicles3.json'
+import vehicles4 from '../App/Data/Vehicles/Vehicles4.json'
 
 
 describe('Time to scrub some data', () => {
