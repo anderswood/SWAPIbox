@@ -10,6 +10,7 @@ import planetScrubber from '../App/Scrubbers/planetScrubber'
 import speciesOrdered from '../App/Scrubbers/speciesOrdered'
 import speciesScrubber from '../App/Scrubbers/speciesScrubber'
 import vehicleScrubber from '../App/Scrubbers/vehicleScrubber'
+import planetsNeedPeople from '../App/Scrubbers/planetsNeedPeople'
 
 //stubbed data
 import films from '../App/Data/films.json'
@@ -37,6 +38,12 @@ import vehicles1 from '../App/Data/Vehicles/Vehicles1.json'
 import vehicles2 from '../App/Data/Vehicles/Vehicles2.json'
 import vehicles3 from '../App/Data/Vehicles/Vehicles3.json'
 import vehicles4 from '../App/Data/Vehicles/Vehicles4.json'
+import cleanedVehicles from '../App/Data/Vehicles/CleanedVehicles'
+import halfCleanedSpecies from '../App/Data/Species/HalfCleanedSpecies'
+import cleanedSpecies from '../App/Data/Species/cleanedSpecies'
+import halfCleanedPeople from '../App/Data/People/HalfCleanedPeople'
+import halfCleanedPlanets from '../App/Data/Planets/HalfCleanedPlanets'
+
 
 
 describe('Time to scrub some data', () => {
@@ -80,7 +87,7 @@ function resolveAfter2Seconds () {
 
     await resolveAfter2Seconds();
     planetArray.then((array) => {
-      console.log('planets test', array.length)
+      console.log(array);
       expect(array.length).toEqual(67);
     })
   })
@@ -132,5 +139,27 @@ function resolveAfter2Seconds () {
     })
   })
 
+  it('speciesOrdered corrects the reference order of the species', () => {
+    expect(halfCleanedSpecies[0].species).not.toEqual("Human")
+    expect(halfCleanedSpecies[1].species).not.toEqual("Droid")
 
+    const speciesCorrect = speciesOrdered(halfCleanedSpecies)
+
+    expect(speciesCorrect[0]).toEqual("Human")
+    expect(speciesCorrect[1]).toEqual("Droid")
+  })
+
+  it('peopleNeedPlanets adds the appropriate planet and species to each person', () => {
+    expect(halfCleanedPeople[0].Species).toEqual('http://swapi.co/api/species/1/')
+    expect(halfCleanedPeople[0].Homeworld).toEqual('http://swapi.co/api/planets/1/')
+    expect(halfCleanedPeople[1].Species).toEqual('http://swapi.co/api/species/2/')
+    expect(halfCleanedPeople[1].Homeworld).toEqual('http://swapi.co/api/planets/1/')
+
+    const peopleMostlyCorrect = peopleNeedPlanets(halfCleanedPeople, halfCleanedPlanets, cleanedSpecies)
+
+    expect(peopleMostlyCorrect[0].Species).toEqual('Human')
+    expect(peopleMostlyCorrect[0].Homeworld).toEqual('Tatooine')
+    expect(peopleMostlyCorrect[1].Species).toEqual('Droid')
+    expect(peopleMostlyCorrect[1].Homeworld).toEqual('Tatooine')
+  })
 })
