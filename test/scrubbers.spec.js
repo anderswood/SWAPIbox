@@ -11,7 +11,7 @@ import speciesOrdered from '../App/Scrubbers/speciesOrdered'
 import speciesScrubber from '../App/Scrubbers/speciesScrubber'
 import vehicleScrubber from '../App/Scrubbers/vehicleScrubber'
 import planetsNeedPeople from '../App/Scrubbers/planetsNeedPeople'
-import deletePeopleURL from '../App/Scrubbers/deletePeopleURL''
+import deletePeopleURL from '../App/Scrubbers/deletePeopleURL'
 
 //stubbed data
 import films from '../App/Data/films.json'
@@ -45,7 +45,7 @@ import cleanedSpecies from '../App/Data/Species/cleanedSpecies'
 import halfCleanedPeople from '../App/Data/People/HalfCleanedPeople'
 import halfCleanedPlanets from '../App/Data/Planets/HalfCleanedPlanets'
 import mostlyCleanedPeople from '../App/Data/People/MostlyCleanedPeople'
-
+import cleanedPeople from '../App/Data/People/cleanedPeople'
 
 describe('Time to scrub some data', () => {
 
@@ -173,16 +173,13 @@ function resolveAfter2Seconds () {
     expect(halfCleanedPlanets[1].Residents.length).toEqual(3)
   })
 
-  it.only('deletePeopleURL applies the correct planet to the individuals object', () => {
-    console.log(mostlyCleanedPeople[0])
-    console.log(mostlyCleanedPeople[1])
+  it('deletePeopleURL applies the correct planet to the individuals object', () => {
     expect(mostlyCleanedPeople[0].PlanetUrl).toEqual(0)
     expect(mostlyCleanedPeople[1].PlanetUrl).toEqual(0)
 
     let deletedURL = deletePeopleURL(mostlyCleanedPeople)
 
-    expect(mostlyCleanedPeople[0].PlanetUrl).toEqual(undefined)
-    expect(mostlyCleanedPeople[1].PlanetUrl).toEqual(undefined)
-
+    expect(deletedURL[0].PlanetUrl).toEqual(undefined)
+    expect(deletedURL[1].PlanetUrl).toEqual(undefined)
   })
 })
