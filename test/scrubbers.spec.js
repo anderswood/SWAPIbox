@@ -68,18 +68,19 @@ function resolveAfter2Seconds () {
   })
 
   it('planetScrubber make 7 api calls and return an array of length 67', async () => {
-    fetchMock.get('http://swapi.co/api/films/?page=1', { status: 200, body: planets1 });
-    fetchMock.get('http://swapi.co/api/films/?page=2', { status: 200, body: planets2 });
-    fetchMock.get('http://swapi.co/api/films/?page=3', { status: 200, body: planets3 });
-    fetchMock.get('http://swapi.co/api/films/?page=4', { status: 200, body: planets4 });
-    fetchMock.get('http://swapi.co/api/films/?page=5', { status: 200, body: planets5 });
-    fetchMock.get('http://swapi.co/api/films/?page=6', { status: 200, body: planets6 });
-    fetchMock.get('http://swapi.co/api/films/?page=7', { status: 200, body: planets7 });
+    fetchMock.get('http://swapi.co/api/planets/?page=1', { status: 200, body: planets1 });
+    fetchMock.get('http://swapi.co/api/planets/?page=2', { status: 200, body: planets2 });
+    fetchMock.get('http://swapi.co/api/planets/?page=3', { status: 200, body: planets3 });
+    fetchMock.get('http://swapi.co/api/planets/?page=4', { status: 200, body: planets4 });
+    fetchMock.get('http://swapi.co/api/planets/?page=5', { status: 200, body: planets5 });
+    fetchMock.get('http://swapi.co/api/planets/?page=6', { status: 200, body: planets6 });
+    fetchMock.get('http://swapi.co/api/planets/?page=7', { status: 200, body: planets7 });
 
     let planetArray = planetScrubber();
 
     await resolveAfter2Seconds();
     planetArray.then((array) => {
+      console.log('planets test', array.length)
       expect(array.length).toEqual(67);
     })
   })
@@ -99,11 +100,11 @@ function resolveAfter2Seconds () {
 
     await resolveAfter2Seconds();
     peopleArray.then((array) => {
-      expect(array.length).toEqual(42);
+      expect(array.length).toEqual(87);
     })
   })
 
-  it('speciesScrubber makes 9 api calls and return an array of length', async () => {
+  it('speciesScrubber makes 4 api calls and return an array of length', async () => {
     fetchMock.get('http://swapi.co/api/species/?page=1', { status: 200, body: species1 });
     fetchMock.get('http://swapi.co/api/species/?page=2', { status: 200, body: species2 });
     fetchMock.get('http://swapi.co/api/species/?page=3', { status: 200, body: species3 });
@@ -113,11 +114,11 @@ function resolveAfter2Seconds () {
 
     await resolveAfter2Seconds();
     speciesArray.then((array) => {
-      expect(array.length).toEqual(42);
+      expect(array.length).toEqual(37);
     })
   })
 
-  it('vehicleScrubber makes 9 api calls and return an array of length', async () => {
+  it('vehicleScrubber makes 4 api calls and return an array of length', async () => {
     fetchMock.get('http://swapi.co/api/vehicles/?page=1', { status: 200, body: vehicles1 });
     fetchMock.get('http://swapi.co/api/vehicles/?page=2', { status: 200, body: vehicles2 });
     fetchMock.get('http://swapi.co/api/vehicles/?page=3', { status: 200, body: vehicles3 });
@@ -127,7 +128,7 @@ function resolveAfter2Seconds () {
 
     await resolveAfter2Seconds();
     vehicleArray.then((array) => {
-      expect(array.length).toEqual(42);
+      expect(array.length).toEqual(39);
     })
   })
 
