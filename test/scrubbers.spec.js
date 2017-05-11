@@ -11,6 +11,7 @@ import speciesOrdered from '../App/Scrubbers/speciesOrdered'
 import speciesScrubber from '../App/Scrubbers/speciesScrubber'
 import vehicleScrubber from '../App/Scrubbers/vehicleScrubber'
 import planetsNeedPeople from '../App/Scrubbers/planetsNeedPeople'
+import deletePeopleURL from '../App/Scrubbers/deletePeopleURL''
 
 //stubbed data
 import films from '../App/Data/films.json'
@@ -43,7 +44,7 @@ import halfCleanedSpecies from '../App/Data/Species/HalfCleanedSpecies'
 import cleanedSpecies from '../App/Data/Species/cleanedSpecies'
 import halfCleanedPeople from '../App/Data/People/HalfCleanedPeople'
 import halfCleanedPlanets from '../App/Data/Planets/HalfCleanedPlanets'
-
+import mostlyCleanedPeople from '../App/Data/People/MostlyCleanedPeople'
 
 
 describe('Time to scrub some data', () => {
@@ -87,7 +88,6 @@ function resolveAfter2Seconds () {
 
     await resolveAfter2Seconds();
     planetArray.then((array) => {
-      console.log(array);
       expect(array.length).toEqual(67);
     })
   })
@@ -161,5 +161,28 @@ function resolveAfter2Seconds () {
     expect(peopleMostlyCorrect[0].Homeworld).toEqual('Tatooine')
     expect(peopleMostlyCorrect[1].Species).toEqual('Droid')
     expect(peopleMostlyCorrect[1].Homeworld).toEqual('Tatooine')
+  })
+
+  it('planetsNeedPeople gives planets the population they so desperately want', () => {
+    expect(halfCleanedPlanets[0].Residents.length).toEqual(0)
+    expect(halfCleanedPlanets[1].Residents.length).toEqual(0)
+
+    let cleanedPlanets = planetsNeedPeople(halfCleanedPlanets, mostlyCleanedPeople)
+
+    expect(halfCleanedPlanets[0].Residents.length).toEqual(10)
+    expect(halfCleanedPlanets[1].Residents.length).toEqual(3)
+  })
+
+  it.only('deletePeopleURL applies the correct planet to the individuals object', () => {
+    console.log(mostlyCleanedPeople[0])
+    console.log(mostlyCleanedPeople[1])
+    expect(mostlyCleanedPeople[0].PlanetUrl).toEqual(0)
+    expect(mostlyCleanedPeople[1].PlanetUrl).toEqual(0)
+
+    let deletedURL = deletePeopleURL(mostlyCleanedPeople)
+
+    expect(mostlyCleanedPeople[0].PlanetUrl).toEqual(undefined)
+    expect(mostlyCleanedPeople[1].PlanetUrl).toEqual(undefined)
+
   })
 })
