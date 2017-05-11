@@ -8,16 +8,29 @@ import cleanedPeople from '../App/Data/People/CleanedPeople'
 describe('CardList Test', () => {
 
 
-  it('1. displays 1 card when passed 1 card', () => {
-    const mockClick = jest.fn();
-    const wrapper = shallow(<CardList cardArr={ [cleanedPeople[0]] }
-                                      favArr={ [] }
-                                      clickOnFav={ mockClick }/>)
+  it('1. is a thing that renders somewhere or something like that', () => {
+    const testArr = cleanedPeople
 
-    expect(wrapper.find('.card-container').length).toBe(1)
+    const mockClick = jest.fn();
+    const wrapper = shallow(<CardList className='card-list'
+                                    cardArr={[testArr[0], [testArr[1]]]}
+                                    favArr={[testArr[0]]}
+                                    clickOnFav={mockClick}/>)
+
+    expect(wrapper.length).toEqual(1)
   });
 
+  it('2. information passed through CardList renders to the appropriate number of children', () => {
+    const testArr = cleanedPeople
+
+    const mockClick = jest.fn();
+    const wrapper = shallow(<CardList className='card-list'
+                                    cardArr={[testArr[0], [testArr[1]]]}
+                                    favArr={[testArr[0]]}
+                                    clickOnFav={mockClick}/>)
 
 
+    expect(wrapper.children().length).toEqual(2)
+  });
 
 });
