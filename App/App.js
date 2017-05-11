@@ -100,7 +100,7 @@ class App extends Component {
   isFetching() {
     if (this.state.fetchInProgress) {
       return (
-        <div id='api-fetching'><h2>summoning your star wars knowledge, please hold</h2></div>
+        <div id='api-fetching'><img id='lightspeed' src="../images/lightspeed.gif"/></div>
       )
     }
   }

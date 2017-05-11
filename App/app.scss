@@ -8,6 +8,15 @@ body {
   background-color: #000000;
 }
 
+#lightspeed {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 #main-container {
   display: flex;
 }
@@ -31,19 +40,6 @@ body {
 #button-container {
   display: flex;
 
-}
-
-#api-fetching {
-  animation: blink .75s linear infinite;
-}
-
-@keyframes blink {
-  0% {
-    background-color: #000;
-  }
-  100% {
-    background-color: #FFF;
-  }
 }
 
 #api-fetching h2 {
