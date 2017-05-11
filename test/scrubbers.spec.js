@@ -14,6 +14,7 @@ import planetsNeedPeople from '../App/Scrubbers/planetsNeedPeople'
 import deletePeopleURL from '../App/Scrubbers/deletePeopleURL'
 import { filmHelper, planetHelper, peopleHelper, speciesHelper, vehiclesHelper } from '../App/Data/testHelper'
 
+
 //stubbed data
 import cleanedVehicles from '../App/Data/Vehicles/CleanedVehicles'
 import halfCleanedSpecies from '../App/Data/Species/HalfCleanedSpecies'
@@ -21,7 +22,7 @@ import cleanedSpecies from '../App/Data/Species/cleanedSpecies'
 import halfCleanedPeople from '../App/Data/People/HalfCleanedPeople'
 import halfCleanedPlanets from '../App/Data/Planets/HalfCleanedPlanets'
 import mostlyCleanedPeople from '../App/Data/People/MostlyCleanedPeople'
-
+import cleanedPeople from '../App/Data/People/cleanedPeople'
 
 describe('Time to scrub some data', () => {
 
@@ -108,13 +109,13 @@ function resolveAfter2Seconds () {
   })
 
   it('9. deletePeopleURL applies the correct planet to the individuals object', () => {
+
     expect(mostlyCleanedPeople[0].PlanetUrl).toEqual(0)
     expect(mostlyCleanedPeople[1].PlanetUrl).toEqual(0)
 
     let deletedURL = deletePeopleURL(mostlyCleanedPeople)
 
-    expect(mostlyCleanedPeople[0].PlanetUrl).toEqual(undefined)
-    expect(mostlyCleanedPeople[1].PlanetUrl).toEqual(undefined)
-
+    expect(deletedURL[0].PlanetUrl).toEqual(undefined)
+    expect(deletedURL[1].PlanetUrl).toEqual(undefined)
   })
 })
