@@ -25,7 +25,8 @@ class App extends Component {
       planet: [],
       vehicle: [],
       favorites: [],
-      fetchInProgress: true
+      fetchInProgress: true,
+      activeButton: 'favorites'
     }
   }
 
@@ -75,7 +76,8 @@ class App extends Component {
 
   updateCardsOnClick(category) {
     this.setState({
-      cardArr: this.state[category]
+      cardArr: this.state[category],
+      activeButton: category
     })
   }
 
@@ -120,14 +122,18 @@ class App extends Component {
           </header>
           <section id='button-container'>
             <Button type={ 'people' }
-                    updateCards={ this.updateCardsOnClick.bind(this) }/>
+                    updateCards={ this.updateCardsOnClick.bind(this) }
+                    activeButton={ this.state.activeButton }/>
             <Button type={ 'planet' }
-                    updateCards={ this.updateCardsOnClick.bind(this) }/>
+                    updateCards={ this.updateCardsOnClick.bind(this) }
+                    activeButton={ this.state.activeButton }/>
             <Button type={ 'vehicle' }
-                    updateCards={ this.updateCardsOnClick.bind(this) }/>
+                    updateCards={ this.updateCardsOnClick.bind(this) }
+                    activeButton={ this.state.activeButton }/>
             <Favorites  type={ 'favorites' }
                         updateCards={ this.updateCardsOnClick.bind(this)}
-                        favoriteCount={ this.state.favorites.length }/>
+                        favoriteCount={ this.state.favorites.length }
+                        activeButton={ this.state.activeButton }/>
           </section>
             { this.isFetching() }
             { this.areThereFavorites() }
