@@ -1,0 +1,210 @@
+{
+    "count": 37,
+    "next": null,
+    "previous": "http://swapi.co/api/species/?page=3",
+    "results": [
+        {
+            "name": "Togruta",
+            "classification": "mammal",
+            "designation": "sentient",
+            "average_height": "180",
+            "skin_colors": "red, white, orange, yellow, green, blue",
+            "hair_colors": "none",
+            "eye_colors": "red, orange, yellow, green, blue, black",
+            "average_lifespan": "94",
+            "homeworld": "http://swapi.co/api/planets/58/",
+            "language": "Togruti",
+            "people": [
+                "http://swapi.co/api/people/78/"
+            ],
+            "films": [
+                "http://swapi.co/api/films/5/",
+                "http://swapi.co/api/films/6/"
+            ],
+            "created": "2014-12-20T18:44:03.246000Z",
+            "edited": "2014-12-20T21:36:42.209000Z",
+            "url": "http://swapi.co/api/species/35/"
+        },
+        {
+            "name": "Kaleesh",
+            "classification": "reptile",
+            "designation": "sentient",
+            "average_height": "170",
+            "skin_colors": "brown, orange, tan",
+            "hair_colors": "none",
+            "eye_colors": "yellow",
+            "average_lifespan": "80",
+            "homeworld": "http://swapi.co/api/planets/59/",
+            "language": "Kaleesh",
+            "people": [
+                "http://swapi.co/api/people/79/"
+            ],
+            "films": [
+                "http://swapi.co/api/films/6/"
+            ],
+            "created": "2014-12-20T19:45:42.537000Z",
+            "edited": "2014-12-20T21:36:42.210000Z",
+            "url": "http://swapi.co/api/species/36/"
+        },
+        {
+            "name": "Pau'an",
+            "classification": "mammal",
+            "designation": "sentient",
+            "average_height": "190",
+            "skin_colors": "grey",
+            "hair_colors": "none",
+            "eye_colors": "black",
+            "average_lifespan": "700",
+            "homeworld": "http://swapi.co/api/planets/12/",
+            "language": "Utapese",
+            "people": [
+                "http://swapi.co/api/people/83/"
+            ],
+            "films": [
+                "http://swapi.co/api/films/6/"
+            ],
+            "created": "2014-12-20T20:35:06.777000Z",
+            "edited": "2014-12-20T21:36:42.212000Z",
+            "url": "http://swapi.co/api/species/37/"
+        },
+        {
+            "name": "Wookiee",
+            "classification": "mammal",
+            "designation": "sentient",
+            "average_height": "210",
+            "skin_colors": "gray",
+            "hair_colors": "black, brown",
+            "eye_colors": "blue, green, yellow, brown, golden, red",
+            "average_lifespan": "400",
+            "homeworld": "http://swapi.co/api/planets/14/",
+            "language": "Shyriiwook",
+            "people": [
+                "http://swapi.co/api/people/13/",
+                "http://swapi.co/api/people/80/"
+            ],
+            "films": [
+                "http://swapi.co/api/films/2/",
+                "http://swapi.co/api/films/7/",
+                "http://swapi.co/api/films/6/",
+                "http://swapi.co/api/films/3/",
+                "http://swapi.co/api/films/1/"
+            ],
+            "created": "2014-12-10T16:44:31.486000Z",
+            "edited": "2015-01-30T21:23:03.074598Z",
+            "url": "http://swapi.co/api/species/3/"
+        },
+        {
+            "name": "Droid",
+            "classification": "artificial",
+            "designation": "sentient",
+            "average_height": "n/a",
+            "skin_colors": "n/a",
+            "hair_colors": "n/a",
+            "eye_colors": "n/a",
+            "average_lifespan": "indefinite",
+            "homeworld": null,
+            "language": "n/a",
+            "people": [
+                "http://swapi.co/api/people/2/",
+                "http://swapi.co/api/people/3/",
+                "http://swapi.co/api/people/8/",
+                "http://swapi.co/api/people/23/",
+                "http://swapi.co/api/people/87/"
+            ],
+            "films": [
+                "http://swapi.co/api/films/2/",
+                "http://swapi.co/api/films/7/",
+                "http://swapi.co/api/films/5/",
+                "http://swapi.co/api/films/4/",
+                "http://swapi.co/api/films/6/",
+                "http://swapi.co/api/films/3/",
+                "http://swapi.co/api/films/1/"
+            ],
+            "created": "2014-12-10T15:16:16.259000Z",
+            "edited": "2015-04-17T06:59:43.869528Z",
+            "url": "http://swapi.co/api/species/2/"
+        },
+        {
+            "name": "Human",
+            "classification": "mammal",
+            "designation": "sentient",
+            "average_height": "180",
+            "skin_colors": "caucasian, black, asian, hispanic",
+            "hair_colors": "blonde, brown, black, red",
+            "eye_colors": "brown, blue, green, hazel, grey, amber",
+            "average_lifespan": "120",
+            "homeworld": "http://swapi.co/api/planets/9/",
+            "language": "Galactic Basic",
+            "people": [
+                "http://swapi.co/api/people/1/",
+                "http://swapi.co/api/people/4/",
+                "http://swapi.co/api/people/5/",
+                "http://swapi.co/api/people/6/",
+                "http://swapi.co/api/people/7/",
+                "http://swapi.co/api/people/9/",
+                "http://swapi.co/api/people/10/",
+                "http://swapi.co/api/people/11/",
+                "http://swapi.co/api/people/12/",
+                "http://swapi.co/api/people/14/",
+                "http://swapi.co/api/people/18/",
+                "http://swapi.co/api/people/19/",
+                "http://swapi.co/api/people/21/",
+                "http://swapi.co/api/people/22/",
+                "http://swapi.co/api/people/25/",
+                "http://swapi.co/api/people/26/",
+                "http://swapi.co/api/people/28/",
+                "http://swapi.co/api/people/29/",
+                "http://swapi.co/api/people/32/",
+                "http://swapi.co/api/people/34/",
+                "http://swapi.co/api/people/43/",
+                "http://swapi.co/api/people/51/",
+                "http://swapi.co/api/people/60/",
+                "http://swapi.co/api/people/61/",
+                "http://swapi.co/api/people/62/",
+                "http://swapi.co/api/people/66/",
+                "http://swapi.co/api/people/67/",
+                "http://swapi.co/api/people/68/",
+                "http://swapi.co/api/people/69/",
+                "http://swapi.co/api/people/74/",
+                "http://swapi.co/api/people/81/",
+                "http://swapi.co/api/people/84/",
+                "http://swapi.co/api/people/85/",
+                "http://swapi.co/api/people/86/",
+                "http://swapi.co/api/people/35/"
+            ],
+            "films": [
+                "http://swapi.co/api/films/2/",
+                "http://swapi.co/api/films/7/",
+                "http://swapi.co/api/films/5/",
+                "http://swapi.co/api/films/4/",
+                "http://swapi.co/api/films/6/",
+                "http://swapi.co/api/films/3/",
+                "http://swapi.co/api/films/1/"
+            ],
+            "created": "2014-12-10T13:52:11.567000Z",
+            "edited": "2015-04-17T06:59:55.850671Z",
+            "url": "http://swapi.co/api/species/1/"
+        },
+        {
+            "name": "Rodian",
+            "classification": "sentient",
+            "designation": "reptilian",
+            "average_height": "170",
+            "skin_colors": "green, blue",
+            "hair_colors": "n/a",
+            "eye_colors": "black",
+            "average_lifespan": "unknown",
+            "homeworld": "http://swapi.co/api/planets/23/",
+            "language": "Galactic Basic",
+            "people": [
+                "http://swapi.co/api/people/15/"
+            ],
+            "films": [
+                "http://swapi.co/api/films/1/"
+            ],
+            "created": "2014-12-10T17:05:26.471000Z",
+            "edited": "2016-07-19T13:27:03.156498Z",
+            "url": "http://swapi.co/api/species/4/"
+        }
+    ]
+}
