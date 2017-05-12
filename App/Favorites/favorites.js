@@ -14,7 +14,7 @@ const Favorites = ( {type, updateCards, favoriteCount = 0, activeButton} ) => {
     <button className={ buttonClass }
             id='favorites-container'
             onClick={ e => handleClick() }>
-      <h4 id='view-favorites'>View Favorites</h4>
+      <h5 id='view-favorites'>View Favorites</h5>
       <div id='favorites-box'><h4>{ favoriteCount }</h4></div>
     </button>
   )

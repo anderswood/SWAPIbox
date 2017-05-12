@@ -5,7 +5,8 @@
 @import './Favorites/favorites.scss';
 
 body {
-  background-color: #000000;
+  background-attachment: fixed;
+  background-color: #FFFFFF;
 }
 
 #lightspeed {
@@ -22,15 +23,16 @@ body {
 }
 
 #content-container {
-  background-color: #000;
+  background-color: transparent;
   width: 100%;
 }
 
 #header-container {
+  background-color: transparent;
   font-size: 25px;
   display: flex;
   justify-content: center;
-  padding: 5px;
+  padding: 10px;
 }
 
 #header-container h1 {
@@ -63,7 +65,7 @@ body {
 
 @media only screen and (min-width: 1250px) {
   button {
-    min-width: 175px;
+    min-width: 150px;
   }
 
 }
