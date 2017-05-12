@@ -39,7 +39,6 @@ body {
 
 #button-container {
   display: flex;
-
 }
 
 #api-fetching h2 {
@@ -49,4 +48,22 @@ body {
 #card-container {
   background-color: #000000;
   display: flex;
+}
+
+@media only screen and (max-width: 750px) {
+  #aside-container {
+    display: none;
+  }
+
+  button h4 {
+    font-size: 12px;
+  }
+
+}
+
+@media only screen and (min-width: 1250px) {
+  button {
+    min-width: 175px;
+  }
+
 }

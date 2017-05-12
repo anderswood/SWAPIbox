@@ -12,7 +12,9 @@ const Button = ( {type, updateCards, activeButton} ) => {
 
   return(
     <button className={ buttonClass }
-            onClick={ e => handleClick() }><h4>{ type }</h4></button>
+            onClick={ e => handleClick() }>
+      <h4>{ type.charAt(0).toUpperCase() + type.slice(1) }</h4>
+    </button>
   )
 
 }
