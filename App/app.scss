@@ -29,7 +29,6 @@ body {
 
 #header-container {
   background-color: transparent;
-  font-size: 25px;
   display: flex;
   justify-content: center;
   padding: 10px;
@@ -55,6 +54,23 @@ body {
 @media only screen and (max-width: 750px) {
   #aside-container {
     display: none;
+  }
+
+  #header-container {
+    margin: 0 10px;
+  }
+
+  #swapi-title {
+    width: 75%;
+    height: 75%;
+  }
+
+  #favorites-box {
+    min-width: 11px;
+  }
+
+  button {
+    width: 25%;
   }
 
   button h4 {
