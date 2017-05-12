@@ -15,11 +15,16 @@
 
 button {
   border: none;
+  border-right: 1px solid rgba(211, 215, 222, 0.5);
   outline: none;
   margin: 0;
   padding-left: 7vw;
   padding-right: 7vw;
   background-color: #747A80;
+}
+
+button:last-of-type {
+  border: none;
 }
 
 button:hover {
