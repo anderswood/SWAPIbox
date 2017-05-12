@@ -118,7 +118,7 @@ class App extends Component {
           </div>
         <div id='content-container'>
           <header id='header-container'>
-            <h1>SWAPI-box</h1>
+            <img id='swapi-title' src="../images/SWapiBox.png"/>
           </header>
           <section id='button-container'>
             <Button className='button' type={ 'people' }

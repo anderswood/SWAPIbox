@@ -6,9 +6,21 @@ const Card = ( {cardData, clickOnFav, favArr} ) => {
   const cardContentsArr = []
   Object.keys(cardData).forEach( (property, i) => {
     if(cardData[property] !== null && property !== 'Type' && property !== 'Name') {
-      cardContentsArr.push(<h3 key={i}>{ property }: { cardData[property] }</h3>)
+      if(property == 'Residents' && cardData[property].length == 0) {
+        cardContentsArr[cardContentsArr.length] = <h3 key={ cardContentsArr.length }>Residents:</h3>
+        cardContentsArr[cardContentsArr.length] = <h6 key={ cardContentsArr.length }>{ 'None' }</h6>
+      }
+      else if (property == 'Residents') {
+        cardContentsArr[cardContentsArr.length] = <h3 key={ cardContentsArr.length }>Residents:</h3>
+        cardData[property].forEach((name, indy) => {
+          cardContentsArr[cardContentsArr.length] = <h6 key={ cardContentsArr.length }>{ name }</h6>
+        })
+      } else {
+        cardContentsArr[cardContentsArr.length] = <h3 key={cardContentsArr.length}>{ property }: { cardData[property] }</h3>
+      }
     }
   })
+
 
   const isFavorite = () => {
     const temp = favArr.indexOf(cardData);

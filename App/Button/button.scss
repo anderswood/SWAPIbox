@@ -2,7 +2,7 @@
 #button-container {
   display: flex;
   justify-content: space-around;
-  padding: 8px 30px 8px 30px;
+  padding: 8px 0 8px 0;
 }
 
 .active {
@@ -16,9 +16,9 @@
 button {
   border: none;
   outline: none;
-  margin: 4px;
-  padding-left: 12px;
-  padding-right: 12px;
+  margin: 0;
+  padding-left: 7vw;
+  padding-right: 7vw;
   background-color: #747A80;
 }
 
