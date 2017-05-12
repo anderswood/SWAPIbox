@@ -9,7 +9,8 @@ const CardList = ( {cardArr, clickOnFavorite, favCardArr} ) => {
   }
 
   const cardListArr = cardArr.map( (cardObj, i) =>{
-    return <Card cardData={ cardObj }
+    return <Card className='card'
+                 cardData={ cardObj }
                  key={ cardObj.Name+i }
                  favArr={ favCardArr }
                  clickOnFav={ clickOnFavorite }/>

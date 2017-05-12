@@ -8,7 +8,7 @@ import cleanedPeople from '../App/Data/People/CleanedPeople'
 describe('Card Test', () => {
 
 
-  it('1. has one class of card-container', () => {
+  it('1. creates a card', () => {
     const mockClick = jest.fn();
     const wrapper = shallow(<Card cardData={ cleanedPeople[0] }
                                   favArr={ [] }
@@ -17,7 +17,7 @@ describe('Card Test', () => {
     expect(wrapper.find('.card-container').length).toBe(1)
   });
 
-  it('2. should assign class of favorited if the cards in in the fav arr', () => {
+  it('2. should assign class of favorited if the cards is in the fav arr', () => {
     const mockClick = jest.fn();
     const wrapper = shallow(<Card cardData={ cleanedPeople[0] }
                                   favArr={ [cleanedPeople[0]] }
@@ -25,6 +25,25 @@ describe('Card Test', () => {
 
     expect(wrapper.find('.favorited').length).toBe(1)
   });
-  
 
+  it('3. should not be favorited if not in favorite array', () => {
+    const mockClick = jest.fn();
+    const wrapper = shallow(<Card cardData={ cleanedPeople[0] }
+                                  favArr={ [cleanedPeople[1]] }
+                                  clickOnFav={ mockClick }/>)
+
+    let container = wrapper.find('.favorited')
+
+    expect(container.length).toEqual(0)
+  })
+
+  it('4. should respond to a click on the favorite button', () => {
+  const mockClick = jest.fn();
+  const wrapper = shallow(<Card cardData={ cleanedPeople[0] }
+                                favArr={ [cleanedPeople[1]] }
+                                clickOnFav={ mockClick }/>)
+
+  let container = wrapper.find('.star-icon').simulate('click')
+  expect(mockClick).toHaveBeenCalled()
+  })
 });

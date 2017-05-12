@@ -8,12 +8,11 @@ describe('Button test', () => {
 
   it('1. has an instance of button', () => {
     const mockClick = jest.fn();
-    const wrapper = shallow(<Button className='button'
-                                    type={ 'vehicle' }
+    const wrapper = shallow(<Button type={ 'vehicle' }
                                     updateCards ={ mockClick }
                                     activeButton={ mockClick }/>)
 
-    let container = wrapper.find('button').simulate('click')
+    let container = wrapper.find('button')
 
     expect(container.length).toEqual(1)
     expect(wrapper.node.type).toEqual('button')
@@ -21,12 +20,11 @@ describe('Button test', () => {
 
   it('2. can be clicked to update cardData', () => {
     const mockClick = jest.fn();
-    const wrapper = shallow(<Button className='button'
-                                    type={ 'vehicle' }
+    const wrapper = shallow(<Button type={ 'vehicle' }
                                     updateCards ={ mockClick }
                                     activeButton={ mockClick }/>)
     let container = wrapper.find('button').simulate('click')
-
+    
     expect(container.length).toEqual(1)
     expect(mockClick).toHaveBeenCalled()
   });

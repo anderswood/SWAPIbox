@@ -24,7 +24,7 @@ const Card = ( {cardData, clickOnFav, favArr} ) => {
     <div className='card-container'>
       <div className='card-header'>
         <div className='card-title'><h2>{ cardData.Name }</h2></div>
-          <div  className={ isFavorite() }
+          <div className={ isFavorite() }
                 onClick={ e => { handleFavoriteClick(e.target) } }>
           </div>
       </div>
